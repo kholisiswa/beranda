@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robusta</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: end;
+            padding: 10px 20px;
+            background-color: white;
+            border-bottom: 2px solid #ddd;
+            position: relative;
+        }
+
+        .logo-container {
+            margin-right: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 60px;
+        }
+
+        .brand-name {
+            font-size: 14px;
+            color: #6b4226;
+            margin-top: 1px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+            position: relative;
+            justify-content: flex-start; /* Align items to the left */
+        }
+
+        .nav-links li {
+            font-size: 25px;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #6b4226;
+            position: relative;
+        }
+
+        .nav-links li a:hover {
+            color: #9b57b5;
+        }
+
+        .nav-links li:last-child {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .maps-logo {
+            height: 25px;
+            margin-right: 10px;
+        }
+
+        /* Dropdown styling */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            color: #6b4226;
+            text-decoration: none;
+            padding: 5px 0;
+        }
+
+        .nav-links li:hover .dropdown {
+            display: flex;
+        }
+
+        /* Simple oval language toggle */
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #6b4226;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .language-toggle:hover {
+            background-color: #9b57b5;
+        }
+
+        /* Styling for coffee image */
+        .coffee-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 80px);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .coffee-image img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            position: relative;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Solid dark brown background behind coffee image */
+        .dark-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #332211; /* Solid dark brown */
+            z-index: -1;
+        }
+
+        /* Wrapper for image and background */
+        .image-wrapper {
+            position: relative;
+            height: calc(100vh - 80px);
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        /* New page section with blurred gradient background */
+        .new-section {
+            height: 100vh;
+            background: radial-gradient(circle, rgba(101, 67, 33, 0.7), rgba(101, 67, 33, 1));
+            filter: blur(120px);
+            box-shadow: inset 0 0 200px rgba(101, 67, 33, 1);
+        }
+         /* Tambahin CSS buat dashboard baru */
+
+        
+        
+    </style>
+
+    <!-- Load Font Awesome for gear icon -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo-container">
+            <img src="WhatsApp_Image_2024-10-06_at_23.41.04_1dd9eca7-removebg-preview.png" alt="Robusta Logo" class="logo">
+            <div class="brand-name">Robusta</div>
+        </div>
+
+        <!-- Language Toggle Button -->
+        <button class="language-toggle" id="language-toggle">INA/ENG</button>
+
+        <ul class="nav-links">
+            <li>
+                <a href="#kopi" class="kopi">Kopi</a>
+                <!-- Dropdown for Coffee -->
+                <div class="dropdown">
+                    <a href="espresso.html">Espresso Beverages</a>
+                    <a href="brewed.html">Brewed Coffee</a>
+                    <a href="Blended.html">Blended Beverages</a>
+                    <a href="lainnya.html">lainnya</a>
+                </div>
+            </li>
+            <li>
+                <a href="#menu" class="menu">Menu</a>
+                <!-- Dropdown for Menu -->
+                <div class="dropdown">
+                    <a href="menu.html">Menu utama</a>
+                    <a href="resevarsi.html">Menu Resevarsi</a>
+                </div>
+            </li>
+            <li>
+                <a href="#kedaikopi" class="kedai">Kedai Kopi</a>
+                <!-- Dropdown for Kedai Kopi -->
+                <div class="dropdown">
+                    <a href="lokasi.html">Lokasi kami</a>
+                </div>
+            </li>
+            <li>
+                <a href="#tentangkami" class="tentang">Tentang Kami</a>
+                <!-- Dropdown for Tentang Kami -->
+                <div class="dropdown">
+                    <a href="cerita.html">Cerita Kami</a>
+                    <a href="visi.html">Visi</a>
+                    <a href="misi.html">Misi</a>
+                </div>
+            </li>
+            <li>
+                <a href="#ikutikami" class="ikuti">Ikuti Kami</a>
+                <!-- Dropdown for Ikuti Kami -->
+                <div class="dropdown">
+                    <a href="https://www.instagram.com/mhmdiswa?igsh=ZTgxNmNtbWtvbnZj" target="_blank">Instagram</a>
+                    <a href="https://www.facebook.com/share/Yn5DQ4YLqAPsovX4/" target="_blank">facebook</a>
+                    <a href="https://x.com/379Ti25860?s=09" target="_blank">twitter</a>
+                </div>
+            </li>
+            <li>
+                <a href="https://www.google.com/maps/place/Jl.+Siwalankerto+Timur+No.256,+Siwalankerto,+Kec.+Wonocolo,+Surabaya,+Jawa+Timur+60236" target="_blank">
+                    <img src="WhatsApp Image 2024-10-07 at 20.27.17_f3c27622.jpg" alt="Maps Logo" class="maps-logo">
+                    <span class="temukan">Temukan Kami</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Wrapper for coffee image and background -->
+<div class="image-wrapper">
+    <div class="dark-background"></div> <!-- Dark background behind the coffee image -->
+    <div class="coffee-image">
+        <img src="WhatsApp Image 2024-10-07 at 21.15.03_e634a0db.jpg" alt="Gambar Kopi" class="slide-image" />
+    </div>
+</div>
+
+<!-- Wrapper for coffee image, background, and text section -->
+<div class="content-wrapper">
+    <!-- Background with wave blur -->
+    <div class="wave-background"></div>
+    
+    <!-- Wrapper for coffee image, background, and text section -->
+<div class="content-wrapper">
+    <!-- Background with wave blur -->
+    <div class="wave-background"></div>
+    
+   <!-- Wrapper for coffee image, background, and text section -->
+<div class="content-wrapper">
+    <!-- Background with moving blur -->
+    <div class="moving-blur"></div>
+    
+    <!-- New text section with aligned content -->
+    <!-- Wrapper for coffee image, background, and text section -->
+<div class="content-wrapper">
+    <!-- Background with moving blur -->
+    <div class="moving-blur"></div>
+    
+    <!-- Wrapper for coffee image, background, and text section -->
+<div class="content-wrapper">
+    <!-- Background with moving blur -->
+    <div class="moving-blur"></div>
+    
+    <div class="content-wrapper">
+        <!-- Background with moving blur -->
+        <div class="moving-blur"></div>
+        
+        <!-- New text section with aligned content -->
+        <div class="text-container">
+            <h2>WAKTUNYA MENIKMATI SECANGKIR KOPI UNTUK MENEMANI AKTIFITASMU SEPANJANG HARI.</h2>
+            <p><i>Rahasia untuk membuat hidup lebih nikmat.</i></p>
+            <br>
+            <br> <!-- Jarak satu spasi -->
+            <p>
+                <i>percaya bahwa secangkir kopi yang sempurna bisa mengubah hari Anda. 
+                Dari biji kopi pilihan hingga proses penyeduhan yang penuh dedikasi, kami hadir untuk memberikan pengalaman kopi yang autentik dan penuh kehangatan.</i>
+            </p>
+        </div>
+        
+        <!-- Image positioned at the top right corner -->
+        <img src="Screenshot 2024-10-09 005857.png" alt="Coffee" class="corner-image"> <!-- Replace with your image source -->
+    </div>
+    
+    
+    
+
+<!-- Add to the CSS section -->
+<style>
+    /* Wrapper to contain both the image and the text with moving blur background */
+    .content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Match the height of the image */
+    display: flex;
+    align-items: center; /* Vertically center the text */
+    justify-content: flex-start; /* Align text to the left */
+    overflow: hidden;
+}
+
+.moving-blur {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 200%; /* Extend to allow movement */
+    height: 100%;
+    background: linear-gradient(90deg, #32210fc3, rgba(90, 52, 14, 0.9)); /* Gradient brown */
+    filter: blur(30px);
+    animation: move-blur 10s ease-in-out infinite; /* Animate the movement with ease */
+    z-index: -1s; /* Send background behind the text */
+}
+@keyframes move-blur {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-50%); /* Move background left */
+    }
+    100% {
+        transform: translateX(0); /* Move back to original position */
+    }
+}
+
+
+.text-container {
+    position: relative;
+    padding: 20px;
+    max-width: 800px; /* Increase max-width for wider text */
+    text-align: left;
+    margin-left: 20px; /* Adjust based on preferred alignment */
+    color: white;
+    z-index: 1; /* Make sure text appears above the moving blur */
+}
+
+
+.text-container h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: white; /* Make sure text is readable over the blur */
+}
+
+.text-container p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.corner-image {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    right: 50px; /* Adjust distance from the right */
+    transform: translateY(-50%); /* Offset for exact centering */
+    width: 600px; /* Increase width to three times */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 1; /* Ensure it appears above the blur */
+}
+
+
+
+
+
+</style>
+
+
+<!-- Add this SVG wave clip-path to your HTML -->
+<svg style="display: none;">
+    <defs>
+        <clipPath id="wave" clipPathUnits="objectBoundingBox">
+            <path d="M0,0 C0.2,0.2 0.5,0.1 0.8,0.3 C1,0.5 1,1 0,1 Z" />
+        </clipPath>
+    </defs>
+</svg>
+
+
+
+
+    <script>
+        // Array gambar untuk slide
+        const images = [
+            "WhatsApp Image 2024-10-07 at 21.15.03_e634a0db.jpg",
+            "18b9d9e20c867fa7aee39661831d86ea.jpg",
+            "43b1ceec3e969edfbfb2c2e93dfca92a.jpg"
+        ];
+
+        let currentIndex = 0;
+        const slideImage = document.querySelector('.slide-image');
+
+        // Function to change slide
+        function changeSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            slideImage.style.opacity = 0;
+            setTimeout(() => {
+                slideImage.src = images[currentIndex];
+                slideImage.style.opacity = 1;
+            }, 1000);
+        }
+
+        // Change slide every 5 seconds
+        setInterval(changeSlide, 5000);
+
+        // Language change function
+        const translations = {
+            en: {
+                kopi: "Coffee",
+                menu: "Menu",
+                kedai: "Coffee Shop",
+                tentang: "About Us",
+                ikuti: "Follow Us",
+                temukan: "Find Us",
+                espresso: "Espresso Beverages",
+                brewed: "Brewed Coffee",
+                blended: "Blended Beverages",
+                lainnya: "Others",
+                menuUtama: "Main Menu",
+                reserveMenu: "Reserve Menu",
+                lokasi: "Our Location",
+                informasi: "ROBUSTA Information",
+                cerita: "Our Story",
+                misi: "Mission",
+                visi: "Vision",
+                instagram: "Instagram",
+                facebook: "Facebook",
+                twitter: "Twitter",
+                linkedin: "LinkedIn",
+            },
+            id: {
+                kopi: "Kopi",
+                menu: "Menu",
+                kedai: "Kedai Kopi",
+                tentang: "Tentang Kami",
+                ikuti: "Ikuti Kami",
+                temukan: "Temukan Kami",
+                espresso: "Espresso Beverages",
+                brewed: "Brewed Coffee",
+                blended: "Blended Beverages",
+                lainnya: "lainnya",
+                menuUtama: "Menu utama",
+                reserveMenu: "Reserve Menu",
+                lokasi: "Lokasi kami",
+                informasi: "Informasi ROBUSTA",
+                cerita: "Cerita Kami",
+                misi: "Misi",
+                visi: "Visi",
+                instagram: "Instagram",
+                facebook: "Facebook",
+                twitter: "Twitter",
+                linkedin: "LinkedIn",
+            }
+        };
+
+        // Event listener for language toggle
+        const languageToggle = document.getElementById('language-toggle');
+        let currentLanguage = 'id'; // Default language
+
+        languageToggle.addEventListener('click', () => {
+            currentLanguage = currentLanguage === 'id' ? 'en' : 'id'; // Toggle language
+            updateLanguage();
+            languageToggle.textContent = currentLanguage === 'id' ? 'INA' : 'ENG'; // Update button text
+        });
+
+        function updateLanguage() {
+            document.querySelector('.kopi').textContent = translations[currentLanguage].kopi;
+            document.querySelector('.menu').textContent = translations[currentLanguage].menu;
+            document.querySelector('.kedai').textContent = translations[currentLanguage].kedai;
+            document.querySelector('.tentang').textContent = translations[currentLanguage].tentang;
+            document.querySelector('.ikuti').textContent = translations[currentLanguage].ikuti;
+            document.querySelector('.temukan').textContent = translations[currentLanguage].temukan;
+        }
+        
+            
+    </script>
+</body>
+</html>
